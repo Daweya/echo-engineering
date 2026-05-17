@@ -211,6 +211,129 @@
 
   .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(30, 136, 229, 0.4); }
 
+  /* === Language Switcher === */
+  .lang-switcher {
+    display: flex;
+    gap: 0.15rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.2rem;
+    margin-right: 0.5rem;
+  }
+  .lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 0.3rem 0.65rem;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .lang-btn:hover { color: var(--blue-bright); }
+  .lang-btn.active {
+    background: var(--gradient-accent);
+    color: white;
+    box-shadow: 0 2px 8px rgba(30, 136, 229, 0.4);
+  }
+  /* Ethiopic script (Amharic, Tigrinya) needs special font for legibility */
+  :lang(am), :lang(ti),
+  [data-lang-active="am"] [data-i18n],
+  [data-lang-active="ti"] [data-i18n] {
+    font-family: 'Nyala', 'Abyssinica SIL', 'Noto Sans Ethiopic', 'Ethiopia Jiret', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  /* === Mobile Hamburger Button === */
+  .nav-toggle {
+    display: none;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s;
+  }
+  .nav-toggle:hover { border-color: var(--blue-bright); background: rgba(30, 136, 229, 0.1); }
+  .nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* === Mobile Slide-Down Menu === */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 25, 41, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 1rem 1.5rem 1.5rem;
+    z-index: 999;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.25s ease;
+  }
+  @keyframes slideDown {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .mobile-menu a {
+    color: var(--text);
+    text-decoration: none;
+    padding: 1rem 0.75rem;
+    border-bottom: 1px solid rgba(160, 176, 197, 0.1);
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: color 0.15s;
+  }
+  .mobile-menu a:hover { color: var(--accent-2); }
+  .mobile-menu a::before {
+    content: '→';
+    color: var(--accent-2);
+    font-size: 0.9rem;
+    opacity: 0.5;
+  }
+  .mobile-menu .lang-switcher {
+    margin: 1rem 0 0;
+    align-self: flex-start;
+  }
+  .mobile-menu .nav-cta {
+    margin-top: 1rem;
+    text-align: center;
+    justify-content: center;
+  }
+
   /* === Hero === */
   .hero {
     min-height: 100vh;
@@ -765,11 +888,6 @@
     height: 110px;
     background: var(--gradient-accent);
     border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: white;
     flex-shrink: 0;
     border: 3px solid var(--surface);
     box-shadow: 0 0 0 2px var(--border-strong), 0 10px 30px rgba(0,0,0,0.3);
@@ -780,16 +898,33 @@
 
   .leader-card.warm .avatar { background: var(--gradient-warm); }
 
+  /* Initials sit at the bottom layer — always rendered, shown only if photo fails */
+  .avatar .initials {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: white;
+    z-index: 0;
+  }
+
+  /* Photo sits ON TOP of initials. Fades in when fully loaded. */
   .avatar img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
     opacity: 0;
     transition: opacity 0.4s ease;
+    z-index: 1;
+    display: block;
   }
-  .avatar img.loaded { opacity: 1; }
+  .avatar.has-photo img { opacity: 1; }
+  .avatar.has-photo .initials { display: none; }
 
   /* Decorative ring around avatar for premium feel */
   .avatar::after {
@@ -1294,32 +1429,176 @@
     transform: translateY(0);
   }
 
-  /* === Responsive === */
+  /* =============================================== */
+  /* ===           RESPONSIVE BREAKPOINTS         === */
+  /* =============================================== */
+
+  /* === LAPTOP (≤ 1200px) — tighten container padding === */
+  @media (max-width: 1200px) {
+    .nav-container,
+    .hero-content,
+    .section-container,
+    .stats-container,
+    .contact-grid {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .hero h1 { font-size: clamp(2.2rem, 4.5vw, 3.6rem); }
+    section { padding: 5rem 1.5rem; }
+  }
+
+  /* === TABLET (≤ 968px) — stack columns, smaller hero === */
   @media (max-width: 968px) {
+    /* Hide desktop nav, show hamburger */
     .nav-links { display: none; }
+    .nav-toggle { display: flex !important; }
+    .nav-toggle.open + .mobile-menu,
+    .mobile-menu.open { display: flex; }
+
+    /* Collapse all 2-column grids to single column */
     .hero-content,
     .about-grid,
     .leader-grid,
     .service-categories,
     .track-grid,
     .hse-banner,
-    .contact-grid {
+    .contact-grid,
+    .gallery-grid {
       grid-template-columns: 1fr;
+      gap: 2rem;
     }
-    .hero-visual { height: 320px; }
+
+    /* Move hero visual below text & shrink it */
+    .hero { padding: 5rem 1.5rem 3rem; min-height: auto; }
+    .hero-visual { height: 320px; order: 2; }
     .orbit-3 { width: 320px; height: 320px; }
     .orbit-2 { width: 240px; height: 240px; }
     .orbit-1 { width: 160px; height: 160px; }
-    .core-hub { width: 100px; height: 100px; font-size: 1.8rem; }
-    .stats-container { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .core-hub { width: 140px; height: 140px; }
+
+    /* Multi-col grids → 2 col on tablet */
+    .stats-container { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     .vendor-grid { grid-template-columns: repeat(2, 1fr); }
-    .method-phases { grid-template-columns: 1fr 1fr; }
+    .method-phases { grid-template-columns: repeat(2, 1fr); }
     .values-grid { grid-template-columns: 1fr; }
+
+    /* HSE banner stacks */
+    .hse-banner { padding: 2.5rem 2rem; text-align: center; }
+    .hse-icon-big { margin: 0 auto 1.5rem; }
+    .hse-pillars { grid-template-columns: repeat(3, 1fr); }
+
+    /* Section spacing */
     section { padding: 4rem 1.5rem; }
+
+    /* Section titles a bit smaller */
+    h2.section-title,
+    .section-title { font-size: clamp(1.7rem, 4vw, 2.5rem); }
+    .hero h1 { font-size: clamp(2rem, 6vw, 3rem); }
+    .hero-sub { font-size: 1rem; }
+
+    /* Leader cards stack avatar+text vertically */
+    .leader-header { flex-direction: column; align-items: flex-start; }
+    .leader-card { padding: 2rem; }
+
+    /* Capability matrix: horizontal scroll hint */
+    .matrix-wrapper {
+      position: relative;
+    }
+    .matrix-wrapper::after {
+      content: '→ scroll to view full matrix';
+      position: absolute;
+      top: -1.5rem;
+      right: 0;
+      font-size: 0.7rem;
+      color: var(--accent-2);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+  }
+
+  /* === MOBILE (≤ 640px) — single-col, tight padding, bigger touch targets === */
+  @media (max-width: 640px) {
+    html { font-size: 14px; }
+
+    .nav-container { padding: 0.75rem 1rem; }
+    .logo-text { font-size: 0.95rem; }
+    .logo-text small { font-size: 0.6rem; }
+    .logo-mark { width: 36px; height: 36px; }
+    .nav-cta { padding: 0.45rem 0.9rem; font-size: 0.78rem; }
+
+    /* Hero */
+    .hero { padding: 4.5rem 1rem 2.5rem; }
+    .hero h1 { font-size: clamp(1.7rem, 8vw, 2.4rem); letter-spacing: -0.5px; }
+    .hero-sub { font-size: 0.95rem; }
+    .hero-cta-group { flex-direction: column; }
+    .hero-cta-group .btn { width: 100%; justify-content: center; }
+    .hero-visual { height: 260px; }
+    .orbit-3 { width: 240px; height: 240px; }
+    .orbit-2 { width: 180px; height: 180px; }
+    .orbit-1 { width: 120px; height: 120px; }
+    .core-hub { width: 110px; height: 110px; }
+
+    /* Section spacing */
+    section { padding: 3rem 1rem; }
+    .section-intro { font-size: 0.95rem; }
+    h2.section-title, .section-title { font-size: 1.6rem; }
+    h3, .section-eyebrow { font-size: 0.75rem; }
+
+    /* Stats: 2 cols, smaller */
+    .stats-bar { padding: 2rem 1rem; }
+    .stats-container { gap: 1rem; }
+    .stat-item .stat-num { font-size: 2.2rem; }
+    .stat-item .stat-label { font-size: 0.75rem; }
+
+    /* Cards & grids */
+    .about-card, .service-cat, .leader-card, .track-card,
+    .gallery-card, .why-card { padding: 1.5rem; }
+    .service-list li { font-size: 0.9rem; }
+
+    /* Vendor grid → 2 col stays */
+    .vendor-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .vendor-card { padding: 1.25rem 0.75rem; }
+    .vendor-name { font-size: 1.1rem; }
+    .vendor-card small { font-size: 0.7rem; }
+
+    /* Methodology → 1 col */
+    .method-phases { grid-template-columns: 1fr; }
+
+    /* HSE pillars → 1 col */
+    .hse-pillars { grid-template-columns: 1fr; }
+
+    /* Leader card avatar bigger and centered on mobile */
+    .avatar { width: 96px; height: 96px; margin: 0 auto 0.5rem; }
+    .avatar .initials { font-size: 1.8rem; }
+    .leader-header { align-items: center; text-align: center; }
+    .leader-info h3 { font-size: 1.15rem; }
+    .leader-info .role { font-size: 0.85rem; }
+
+    /* Tables: smaller text, force horizontal scroll for wide ones */
+    table { font-size: 0.85rem; }
+    .capability-matrix th, .capability-matrix td { padding: 0.7rem 0.5rem; }
+
+    /* Contact channels */
+    .channel-card { padding: 1.1rem; gap: 0.85rem; }
+    .channel-icon { width: 44px; height: 44px; font-size: 1.1rem; }
+    .channel-info strong { font-size: 0.9rem; }
+
+    /* Footer */
+    footer { padding: 2rem 1rem 1.5rem; }
+    footer p { font-size: 0.75rem; }
+  }
+
+  /* === SMALL MOBILE (≤ 380px) — extra tight === */
+  @media (max-width: 380px) {
+    html { font-size: 13px; }
+    .hero h1 { font-size: 1.5rem; }
+    .stats-container { grid-template-columns: 1fr; }
+    .vendor-grid { grid-template-columns: 1fr; }
+    .nav-cta { display: none; }
   }
 
   @media print {
-    nav, .hero-visual, .orbit { display: none; }
+    nav, .hero-visual, .orbit, .nav-toggle, .mobile-menu { display: none !important; }
     body { background: white; color: black; }
     section { page-break-inside: avoid; padding: 2rem; }
   }
@@ -1366,14 +1645,47 @@
       </div>
     </div>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#capability">Capability</a></li>
-      <li><a href="#leadership">Leadership</a></li>
-      <li><a href="#track-record">Track Record</a></li>
-      <li><a href="#methodology">Methodology</a></li>
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li><a href="#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="#capability" data-i18n="nav.capability">Capability</a></li>
+      <li><a href="#leadership" data-i18n="nav.leadership">Leadership</a></li>
+      <li><a href="#track-record" data-i18n="nav.track">Track Record</a></li>
+      <li><a href="#methodology" data-i18n="nav.method">Methodology</a></li>
     </ul>
-    <a href="#contact" class="nav-cta">Get in Touch</a>
+
+    <!-- Language switcher -->
+    <div class="lang-switcher" role="group" aria-label="Language switcher">
+      <button class="lang-btn active" data-lang="en" lang="en" aria-label="English">EN</button>
+      <button class="lang-btn" data-lang="am" lang="am" aria-label="Amharic">አማ</button>
+      <button class="lang-btn" data-lang="ti" lang="ti" aria-label="Tigrinya">ትግ</button>
+      <button class="lang-btn" data-lang="or" lang="om" aria-label="Oromo">OR</button>
+    </div>
+
+    <a href="#contact" class="nav-cta" data-i18n="nav.cta">Get in Touch</a>
+
+    <!-- Hamburger button (mobile only) -->
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile slide-down menu (hidden on desktop) -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="#about" data-i18n="nav.about">About</a>
+    <a href="#services" data-i18n="nav.services">Services</a>
+    <a href="#capability" data-i18n="nav.capability">Capability</a>
+    <a href="#leadership" data-i18n="nav.leadership">Leadership</a>
+    <a href="#track-record" data-i18n="nav.track">Track Record</a>
+    <a href="#methodology" data-i18n="nav.method">Methodology</a>
+
+    <div class="lang-switcher" role="group" aria-label="Language switcher (mobile)">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="am">አማ</button>
+      <button class="lang-btn" data-lang="ti">ትግ</button>
+      <button class="lang-btn" data-lang="or">OR</button>
+    </div>
+
+    <a href="#contact" class="nav-cta" data-i18n="nav.cta">Get in Touch</a>
   </div>
 </nav>
 
@@ -1384,15 +1696,15 @@
     <div>
       <div class="hero-tag">
         <span class="pulse-dot"></span>
-        ESTABLISHED 2024 • OPERATING NATIONWIDE
+        <span data-i18n="hero.tag">ESTABLISHED 2024 • OPERATING NATIONWIDE</span>
       </div>
-      <h1>Connecting Ethiopia. <span class="accent">Powering Progress.</span></h1>
-      <p class="hero-sub">
+      <h1><span data-i18n="hero.title1">Connecting Ethiopia.</span> <span class="accent" data-i18n="hero.title2">Powering Progress.</span></h1>
+      <p class="hero-sub" data-i18n="hero.sub">
         Echo Engineering PLC delivers multi-vendor telecom infrastructure deployment, electro-mechanical works, and field engineering services to operators and vendors expanding Ethiopia's connectivity.
       </p>
       <div class="hero-cta-group">
-        <a href="#capability" class="btn btn-primary">View Capability Matrix →</a>
-        <a href="#contact" class="btn btn-ghost">Request a Proposal</a>
+        <a href="#capability" class="btn btn-primary" data-i18n="hero.cta1">View Capability Matrix →</a>
+        <a href="#contact" class="btn btn-ghost" data-i18n="hero.cta2">Request a Proposal</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -1503,8 +1815,8 @@
 <!-- About -->
 <section id="about">
   <div class="section-container reveal">
-    <span class="section-eyebrow">About the Company</span>
-    <h2 class="section-title">A new generation of Ethiopian engineering excellence.</h2>
+    <span class="section-eyebrow" data-i18n="about.eyebrow">About the Company</span>
+    <h2 class="section-title" data-i18n="about.title">A new generation of Ethiopian engineering excellence.</h2>
     <p class="section-intro">
       Founded on April 7, 2024, Echo Engineering PLC was built to meet the rising demand for skilled, vendor-certified telecom and electro-mechanical engineering in Ethiopia and East Africa. We combine deep field experience with disciplined operations to deliver projects to international standards.
     </p>
@@ -1532,8 +1844,8 @@
 <!-- Services -->
 <section id="services">
   <div class="section-container reveal">
-    <span class="section-eyebrow">Core Services</span>
-    <h2 class="section-title">Two integrated practice areas. One trusted delivery partner.</h2>
+    <span class="section-eyebrow" data-i18n="services.eyebrow">Core Services</span>
+    <h2 class="section-title" data-i18n="services.title">Two integrated practice areas. One trusted delivery partner.</h2>
     <p class="section-intro">
       Our portfolio is structured to serve both greenfield deployments and operational maintenance — covering everything from site survey to commissioning and long-term support.
     </p>
@@ -1666,8 +1978,8 @@
 <!-- Leadership -->
 <section id="leadership">
   <div class="section-container reveal">
-    <span class="section-eyebrow">Leadership Team</span>
-    <h2 class="section-title">Field-tested leadership with global vendor experience.</h2>
+    <span class="section-eyebrow" data-i18n="leadership.eyebrow">Leadership Team</span>
+    <h2 class="section-title" data-i18n="leadership.title">Field-tested leadership with global vendor experience.</h2>
     <p class="section-intro">
       Echo Engineering is led by engineers who have built and operated telecom networks for Ethiopia's leading operators.
     </p>
@@ -1676,8 +1988,10 @@
       <div class="leader-card">
         <div class="leader-header">
           <div class="avatar">
-            <img src="photos/misganaw-zelalem.jpg" alt="Misganaw Zelalem" loading="lazy" />
-            <span>MZ</span>
+            <span class="initials">MZ</span>
+            <img src="photos/misganaw-zelalem.jpg" alt="Misganaw Zelalem"
+                 onload="this.parentElement.classList.add('has-photo')"
+                 onerror="this.style.display='none'" />
             <span class="photo-hint">PHOTO COMING SOON</span>
           </div>
           <div class="leader-info">
@@ -1699,8 +2013,10 @@
       <div class="leader-card warm">
         <div class="leader-header">
           <div class="avatar">
-            <img src="photos/kidist-debas.jpg" alt="Kidist Debas" loading="lazy" />
-            <span>KD</span>
+            <span class="initials">KD</span>
+            <img src="photos/kidist-debas.jpg" alt="Kidist Debas"
+                 onload="this.parentElement.classList.add('has-photo')"
+                 onerror="this.style.display='none'" />
             <span class="photo-hint">PHOTO COMING SOON</span>
           </div>
           <div class="leader-info">
@@ -1922,9 +2238,9 @@
   <div class="section-container reveal">
     <div class="contact-grid">
       <div>
-        <span class="section-eyebrow">Get in Touch</span>
-        <h2 class="section-title" style="color: white; -webkit-text-fill-color: white;">Let's build the next chapter of Ethiopia's connectivity together.</h2>
-        <p style="color: var(--text-muted); margin-top: 1rem;">
+        <span class="section-eyebrow" data-i18n="contact.eyebrow">Get in Touch</span>
+        <h2 class="section-title" style="color: white; -webkit-text-fill-color: white;" data-i18n="contact.title">Let's build the next chapter of Ethiopia's connectivity together.</h2>
+        <p style="color: var(--text-muted); margin-top: 1rem;" data-i18n="contact.sub">
           Whether you are a vendor planning a regional rollout, an operator scaling coverage, or a partner seeking a reliable subcontractor — we'd like to hear from you.
         </p>
       </div>
@@ -2035,15 +2351,177 @@
     img.src = match[1];
   });
 
-  // Leadership avatar photos — fade in when loaded, mark parent as has-photo
+  // (Leadership avatar photos use inline onload/onerror — no JS needed here)
+  // Belt-and-suspenders: if image is already cached & complete when DOM is ready,
+  // browsers sometimes skip the inline onload — handle that case here.
   document.querySelectorAll('.avatar img').forEach(img => {
-    const apply = () => {
-      img.classList.add('loaded');
-      img.closest('.avatar').classList.add('has-photo');
-    };
-    if (img.complete && img.naturalHeight > 0) apply();
-    else img.addEventListener('load', apply);
+    if (img.complete && img.naturalHeight > 0) {
+      img.parentElement.classList.add('has-photo');
+    }
   });
+
+  // ==============================================
+  //  Mobile hamburger menu toggle
+  // ==============================================
+  const navToggle = document.querySelector('.nav-toggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (navToggle && mobileMenu) {
+    navToggle.addEventListener('click', () => {
+      const open = navToggle.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      mobileMenu.style.display = open ? 'flex' : 'none';
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    // Close menu when a nav link is tapped
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        mobileMenu.style.display = 'none';
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // ==============================================
+  //  Multi-language translation system
+  //  Languages: English (en), Amharic (am), Tigrinya (ti), Oromo (or)
+  //  Note: Translations cover key headlines / nav / CTAs.
+  //        Body content remains in English for accuracy.
+  //        Translations should be reviewed by native speakers before
+  //        being relied upon in formal procurement contexts.
+  // ==============================================
+  const i18n = {
+    en: {
+      'nav.about': 'About',
+      'nav.services': 'Services',
+      'nav.capability': 'Capability',
+      'nav.leadership': 'Leadership',
+      'nav.track': 'Track Record',
+      'nav.method': 'Methodology',
+      'nav.cta': 'Get in Touch',
+      'hero.tag': 'ESTABLISHED 2024 • OPERATING NATIONWIDE',
+      'hero.title1': 'Connecting Ethiopia.',
+      'hero.title2': 'Powering Progress.',
+      'hero.sub': "Echo Engineering PLC delivers multi-vendor telecom infrastructure deployment, electro-mechanical works, and field engineering services to operators and vendors expanding Ethiopia's connectivity.",
+      'hero.cta1': 'View Capability Matrix →',
+      'hero.cta2': 'Request a Proposal',
+      'about.eyebrow': 'About the Company',
+      'about.title': 'A new generation of Ethiopian engineering excellence.',
+      'services.eyebrow': 'Core Services',
+      'services.title': 'Two integrated practice areas. One trusted delivery partner.',
+      'leadership.eyebrow': 'Leadership Team',
+      'leadership.title': 'Field-tested leadership with global vendor experience.',
+      'contact.eyebrow': 'Get in Touch',
+      'contact.title': "Let's build the next chapter of Ethiopia's connectivity together.",
+      'contact.sub': "Whether you are a vendor planning a regional rollout, an operator scaling coverage, or a partner seeking a reliable subcontractor — we'd like to hear from you."
+    },
+    am: {
+      'nav.about': 'ስለ እኛ',
+      'nav.services': 'አገልግሎቶች',
+      'nav.capability': 'ብቃት',
+      'nav.leadership': 'አመራር',
+      'nav.track': 'ልምድ',
+      'nav.method': 'አሰራር',
+      'nav.cta': 'ያግኙን',
+      'hero.tag': 'ከ2024 ጀምሮ • በመላው ኢትዮጵያ',
+      'hero.title1': 'ኢትዮጵያን ማገናኘት።',
+      'hero.title2': 'እድገትን ማስፋፋት።',
+      'hero.sub': 'ኢኮ ኢንጂነሪንግ PLC የቴሌኮም መሠረተ ልማት ዝርጋታ፣ ኤሌክትሮ-መካኒካል ሥራዎች እና የመስክ ምህንድስና አገልግሎቶችን ለኢትዮጵያ ኦፕሬተሮችና ቬንደሮች ይሰጣል።',
+      'hero.cta1': 'የብቃት ማትሪክስ ይመልከቱ →',
+      'hero.cta2': 'ጥቆማ ይጠይቁ',
+      'about.eyebrow': 'ስለ ኩባንያው',
+      'about.title': 'አዲስ ትውልድ የኢትዮጵያ የምህንድስና ብቃት።',
+      'services.eyebrow': 'ዋና አገልግሎቶች',
+      'services.title': 'ሁለት የተቀናጁ ዘርፎች። አንድ የታመነ የአቅርቦት አጋር።',
+      'leadership.eyebrow': 'የአመራር ቡድን',
+      'leadership.title': 'በመስክ የተፈተነ አመራር በዓለም አቀፍ ቬንደር ልምድ።',
+      'contact.eyebrow': 'ያግኙን',
+      'contact.title': 'የኢትዮጵያን የግንኙነት ቀጣይ ምዕራፍ አብረን እንገንባ።',
+      'contact.sub': 'ቬንደር፣ ኦፕሬተር ወይም አስተማማኝ ንዑስ ተቋራጭ የሚፈልጉ አጋር ብትሆኑ — ከእርስዎ መስማት እንፈልጋለን።'
+    },
+    ti: {
+      'nav.about': 'ብዛዕባና',
+      'nav.services': 'ኣገልግሎታት',
+      'nav.capability': 'ዓቕሚ',
+      'nav.leadership': 'መሪሕነት',
+      'nav.track': 'ተመክሮ',
+      'nav.method': 'ኣሰራርሓ',
+      'nav.cta': 'ርኸቡና',
+      'hero.tag': 'ካብ 2024 • ኣብ ኩሉ ኢትዮጵያ',
+      'hero.title1': 'ኢትዮጵያ ምርኻብ።',
+      'hero.title2': 'ዕቤት ምሕያል።',
+      'hero.sub': 'ኢኮ ኢንጂነሪንግ PLC ብዙሕ-ቨንደር ቴሌኮም መሰረተ-ልምዓት፣ ኤሌክትሮ-መካኒካል ስራሕታትን ናይ መስክ ምህንድስናን ኣገልግሎታት ይህብ።',
+      'hero.cta1': 'ዓቕሚ ማትሪክስ ርአዩ →',
+      'hero.cta2': 'ሓሳብ ሕተቱ',
+      'about.eyebrow': 'ብዛዕባ ትካልና',
+      'about.title': 'ሓድሽ ወለዶ ናይ ኢትዮጵያ ምህንድስና ብቕዓት።',
+      'services.eyebrow': 'ቀንዲ ኣገልግሎታት',
+      'services.title': 'ክልተ ዝተዋሃሃዱ ዓውድታት። ሓደ እሙን ምስ ኣካል መውሃቢ።',
+      'leadership.eyebrow': 'ጉጅለ መሪሕነት',
+      'leadership.title': 'ኣብ መስክ ዝተፈተነ መሪሕነት ምስ ዓለማዊ ቨንደር ተመክሮ።',
+      'contact.eyebrow': 'ርኸቡና',
+      'contact.title': 'ዝቕጽል ምዕራፍ ናይ ኢትዮጵያ ምርኻብ ብሓባር ንስርሕ።',
+      'contact.sub': 'ቨንደር፣ ኦፐሬተር ወይ እሙን ንኡስ ኮንትራክተር እትደልዩ ኣካልታት እንተኾንኩም — ካባኹም ክንሰምዕ ንደሊ።'
+    },
+    or: {
+      'nav.about': "Waa'ee Keenya",
+      'nav.services': 'Tajaajiloota',
+      'nav.capability': 'Dandeettii',
+      'nav.leadership': 'Hooggansa',
+      'nav.track': 'Muuxannoo',
+      'nav.method': 'Tooftaa',
+      'nav.cta': 'Nu Quunnamaa',
+      'hero.tag': 'ITTI HUNDEEFFAME 2024 • ITOOPHIYAA HUNDA KEESSATTI',
+      'hero.title1': 'Itoophiyaa Walitti Hidhuu.',
+      'hero.title2': "Guddinaa Kakaasuu.",
+      'hero.sub': 'Echo Engineering PLC tajaajila hojjettoota TELECOM, hojii electro-mechanical, fi tajaajila injineeringii dirree opereeteroota fi vendoroota Itoophiyaaf ni kenna.',
+      'hero.cta1': 'Maatiriksii Dandeettii Ilaali →',
+      'hero.cta2': 'Yaada Gaafadhu',
+      'about.eyebrow': "Waa'ee Dhaabbatichaa",
+      'about.title': 'Dhaloota haaraa beekumsa injineeringii Itoophiyaa.',
+      'services.eyebrow': "Tajaajila Ijoo",
+      'services.title': 'Dameewwan walitti-hidhamoo lama. Michuu amanamaa tokko.',
+      'leadership.eyebrow': 'Garee Hooggansaa',
+      'leadership.title': 'Hooggansa dirree-qoramee muuxannoo vendor addunyaa qabu.',
+      'contact.eyebrow': 'Nu Quunnamaa',
+      'contact.title': "Boqonnaa itti aanu hidhata Itoophiyaa walitti hojjenna.",
+      'contact.sub': 'Vendor naannoof karoorsu, opereeterii uwwisa guddifachuu yookin michuu nuusub-koontiraaktarii amanamaa barbaadu yoo taatan — sagalee keessan dhaga\'uu barbaanna.'
+    }
+  };
+
+  function setLanguage(lang) {
+    if (!i18n[lang]) lang = 'en';
+    document.documentElement.lang = (lang === 'or') ? 'om' : lang;
+    document.documentElement.setAttribute('data-lang-active', lang);
+
+    // Translate every element with data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const translation = i18n[lang][key];
+      if (translation) el.textContent = translation;
+    });
+
+    // Update active button state on all switchers
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    // Persist choice
+    try { localStorage.setItem('echoLang', lang); } catch(e) {}
+  }
+
+  // Wire up all language buttons (both desktop and mobile switchers)
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+  });
+
+  // Restore previous choice on page load
+  try {
+    const saved = localStorage.getItem('echoLang');
+    if (saved && i18n[saved]) setLanguage(saved);
+  } catch(e) {}
 </script>
 
 </body>
