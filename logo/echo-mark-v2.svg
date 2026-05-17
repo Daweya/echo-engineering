@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Echo Engineering">
+  <defs>
+    <linearGradient id="v2bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#091627"/>
+      <stop offset="50%" stop-color="#0f2440"/>
+      <stop offset="100%" stop-color="#1a3a6e"/>
+    </linearGradient>
+    <linearGradient id="v2e" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d6e2f0"/>
+    </linearGradient>
+    <linearGradient id="v2wave" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a0b0c5" stop-opacity="0.7"/>
+      <stop offset="30%" stop-color="#e8eef7"/>
+      <stop offset="70%" stop-color="#c5d0dd"/>
+      <stop offset="100%" stop-color="#8b9bb0" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="v2sig" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff6b35"/>
+      <stop offset="100%" stop-color="#ffa726"/>
+    </linearGradient>
+    <radialGradient id="v2beaconGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffa726" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ff6b35" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="v2soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="0.6"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Backdrop -->
+  <rect width="100" height="100" rx="22" fill="url(#v2bg)"/>
+  <rect x="1.5" y="1.5" width="97" height="97" rx="20.5" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
+
+  <!-- Faint blueprint grid -->
+  <g stroke="rgba(160,176,197,0.06)" stroke-width="0.4">
+    <line x1="0" y1="20" x2="100" y2="20"/>
+    <line x1="0" y1="40" x2="100" y2="40"/>
+    <line x1="0" y1="60" x2="100" y2="60"/>
+    <line x1="0" y1="80" x2="100" y2="80"/>
+    <line x1="20" y1="0" x2="20" y2="100"/>
+    <line x1="40" y1="0" x2="40" y2="100"/>
+    <line x1="60" y1="0" x2="60" y2="100"/>
+    <line x1="80" y1="0" x2="80" y2="100"/>
+  </g>
+
+  <!-- The "E" (white with subtle gradient) -->
+  <g fill="url(#v2e)">
+    <rect x="20" y="22" width="9" height="56" rx="1.5"/>
+    <rect x="20" y="22" width="38" height="9" rx="1.5"/>
+    <rect x="20" y="45.5" width="34" height="9" rx="1.5"/>
+    <rect x="20" y="69" width="38" height="9" rx="1.5"/>
+  </g>
+
+  <!-- Three sine waves WOVEN through the E -->
+  <g fill="none" stroke="url(#v2wave)" stroke-width="3.6" stroke-linecap="round" filter="url(#v2soft)">
+    <path d="M 30 26.5 q 3.5 -5.5 7 0 t 7 0 t 7 0 t 7 0"/>
+    <path d="M 28 50    q 4   -6   8 0 t 8 0 t 8 0 t 8 0"/>
+    <path d="M 30 73.5 q 3.5 -5.5 7 0 t 7 0 t 7 0 t 7 0"/>
+  </g>
+
+  <!-- Glow halo around beacon -->
+  <circle cx="68" cy="50" r="10" fill="url(#v2beaconGlow)"/>
+
+  <!-- Signal beacon at end of middle wave -->
+  <circle cx="68" cy="50" r="3.2" fill="url(#v2sig)"/>
+  <circle cx="68" cy="50" r="1.2" fill="#ffffff" opacity="0.9"/>
+
+  <!-- Concentric pulse rings -->
+  <g fill="none" stroke="url(#v2sig)" stroke-width="0.7" opacity="0.45">
+    <circle cx="68" cy="50" r="6.5"/>
+    <circle cx="68" cy="50" r="10.5" opacity="0.6"/>
+  </g>
+</svg>

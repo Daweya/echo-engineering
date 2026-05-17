@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Echo Engineering (tower concept)">
+  <defs>
+    <linearGradient id="tBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2440"/>
+      <stop offset="100%" stop-color="#1e88e5"/>
+    </linearGradient>
+    <linearGradient id="tSig" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff6b35"/>
+      <stop offset="100%" stop-color="#ffa726"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100" height="100" rx="22" fill="url(#tBg)"/>
+
+  <!-- Tower structure (truss pattern) -->
+  <g stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round">
+    <!-- Two main verticals (tapered tower) -->
+    <line x1="26" y1="80" x2="32" y2="22"/>
+    <line x1="38" y1="80" x2="32" y2="22"/>
+    <!-- Truss cross-bracing -->
+    <line x1="26" y1="80" x2="38" y2="68"/>
+    <line x1="38" y1="80" x2="26" y2="68"/>
+    <line x1="27.5" y1="65" x2="36.5" y2="55"/>
+    <line x1="36.5" y1="65" x2="27.5" y2="55"/>
+    <line x1="29" y1="52" x2="35" y2="42"/>
+    <line x1="35" y1="52" x2="29" y2="42"/>
+    <line x1="30" y1="39" x2="34" y2="30"/>
+    <line x1="34" y1="39" x2="30" y2="30"/>
+  </g>
+
+  <!-- Three transmission booms extending right (forming the E) -->
+  <g fill="#ffffff">
+    <rect x="32" y="28" width="22" height="4" rx="1"/>
+    <rect x="32" y="48" width="28" height="4" rx="1"/>
+    <rect x="32" y="68" width="22" height="4" rx="1"/>
+  </g>
+
+  <!-- Antenna at top -->
+  <line x1="32" y1="22" x2="32" y2="12" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="32" cy="10" r="2" fill="url(#tSig)"/>
+
+  <!-- Signal arcs radiating from antenna -->
+  <g fill="none" stroke="url(#tSig)" stroke-width="1.8" stroke-linecap="round">
+    <path d="M 40 14 a 8 8 0 0 0 -16 0" opacity="0.85"/>
+    <path d="M 48 16 a 16 16 0 0 0 -32 0" opacity="0.6"/>
+    <path d="M 56 18 a 24 24 0 0 0 -48 0" opacity="0.4"/>
+  </g>
+
+  <!-- Base platform -->
+  <rect x="22" y="80" width="20" height="3" rx="1" fill="#ffffff"/>
+
+  <!-- Signal endpoint dot at end of middle boom -->
+  <circle cx="64" cy="50" r="2.5" fill="url(#tSig)"/>
+</svg>

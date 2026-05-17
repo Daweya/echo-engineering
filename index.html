@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Echo Engineering PLC — Ethiopian telecom infrastructure and electro-mechanical engineering company. Multi-vendor expertise across Nokia, Huawei, ZTE, and Ericsson." />
+<link rel="icon" type="image/svg+xml" href="logo/echo-mark-v2.svg" />
+<title>Echo Engineering PLC — Company Profile 2026</title>
+<style>
+  :root {
+    --navy: #0a1929;
+    --navy-2: #0f2440;
+    --navy-3: #15315a;
+    --blue: #1e88e5;
+    --blue-bright: #42a5f5;
+    --accent: #ff6b35;
+    --accent-2: #ffa726;
+    --text: #e8eef7;
+    --text-muted: #95a8c2;
+    --text-dim: #6b7d96;
+    --surface: #0f1e35;
+    --surface-2: #142a4a;
+    --border: rgba(66, 165, 245, 0.18);
+    --border-strong: rgba(66, 165, 245, 0.35);
+    --success: #4caf50;
+    --gradient-hero: linear-gradient(135deg, #0a1929 0%, #0f2440 50%, #15315a 100%);
+    --gradient-accent: linear-gradient(135deg, #1e88e5 0%, #42a5f5 100%);
+    --gradient-warm: linear-gradient(135deg, #ff6b35 0%, #ffa726 100%);
+    --shadow-glow: 0 0 40px rgba(66, 165, 245, 0.15);
+    --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === Navigation === */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(10, 25, 41, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s ease;
+  }
+
+  .nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+  }
+
+  .logo-mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 9px;
+    box-shadow: var(--shadow-glow);
+    overflow: hidden;
+    display: block;
+  }
+  .logo-mark svg { width: 100%; height: 100%; display: block; }
+
+  .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .logo-text small { font-size: 0.65rem; font-weight: 400; color: var(--text-muted); letter-spacing: 2px; }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-links a:hover { color: var(--blue-bright); }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-accent);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    padding: 0.55rem 1.2rem;
+    background: var(--gradient-accent);
+    color: white;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(30, 136, 229, 0.4); }
+
+  /* === Hero === */
+  .hero {
+    min-height: 100vh;
+    background: var(--gradient-hero);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 2rem 4rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(30, 136, 229, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(255, 107, 53, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(66, 165, 245, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(66, 165, 245, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1rem;
+    background: rgba(30, 136, 229, 0.15);
+    border: 1px solid var(--border-strong);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--blue-bright);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--success);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+    70% { box-shadow: 0 0 0 12px rgba(76, 175, 80, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #ffffff 0%, #95a8c2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero h1 .accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 580px;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.6rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--gradient-accent);
+    color: white;
+    box-shadow: 0 4px 20px rgba(30, 136, 229, 0.3);
+  }
+
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(30, 136, 229, 0.5); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+  }
+
+  .btn-ghost:hover { background: rgba(30, 136, 229, 0.1); border-color: var(--blue-bright); }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative;
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .orbit {
+    position: absolute;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+  }
+  .orbit-1 { width: 280px; height: 280px; animation: rotate 30s linear infinite; }
+  .orbit-2 { width: 380px; height: 380px; animation: rotate 45s linear infinite reverse; }
+  .orbit-3 { width: 480px; height: 480px; animation: rotate 60s linear infinite; }
+
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .orbit::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: var(--blue-bright);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--blue-bright);
+    transform: translateX(-50%);
+  }
+
+  .orbit-2::before { background: var(--accent); box-shadow: 0 0 20px var(--accent); }
+  .orbit-3::before { background: var(--accent-2); box-shadow: 0 0 20px var(--accent-2); }
+
+  .core-hub {
+    width: 180px;
+    height: 180px;
+    border-radius: 28px;
+    box-shadow: 0 0 80px rgba(30, 136, 229, 0.55), 0 20px 60px rgba(0,0,0,0.4);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    animation: floatHub 6s ease-in-out infinite;
+  }
+  .core-hub svg { width: 100%; height: 100%; display: block; }
+
+  @keyframes floatHub {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* === Stats Bar === */
+  .stats-bar {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 2rem;
+  }
+
+  .stats-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .stat-item .stat-num {
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-item .stat-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+
+  /* === Sections === */
+  section {
+    padding: 6rem 2rem;
+    position: relative;
+  }
+
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    display: inline-block;
+    color: var(--blue-bright);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-left: 2.5rem;
+    position: relative;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 30px;
+    height: 2px;
+    background: var(--gradient-accent);
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+
+  .section-intro {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin-bottom: 4rem;
+  }
+
+  /* === About === */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    transition: all 0.3s;
+  }
+
+  .about-card:hover { border-color: var(--border-strong); transform: translateY(-4px); }
+
+  .about-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .about-card h3 .icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(30, 136, 229, 0.15);
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    color: var(--blue-bright);
+  }
+
+  .about-card p { color: var(--text-muted); }
+
+  .mission-list {
+    list-style: none;
+    margin-top: 1rem;
+  }
+
+  .mission-list li {
+    padding: 0.6rem 0 0.6rem 1.8rem;
+    color: var(--text-muted);
+    position: relative;
+    border-bottom: 1px dashed rgba(149, 168, 194, 0.15);
+  }
+
+  .mission-list li:last-child { border-bottom: none; }
+
+  .mission-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0.5rem;
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  /* === Services === */
+  #services { background: var(--surface); }
+
+  .service-categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .service-cat {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .service-cat::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-accent);
+  }
+
+  .service-cat.warm::before { background: var(--gradient-warm); }
+
+  .service-cat:hover { transform: translateY(-6px); box-shadow: var(--shadow-card); }
+
+  .service-cat-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .service-cat-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(30, 136, 229, 0.15);
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    color: var(--blue-bright);
+    font-size: 1.4rem;
+  }
+
+  .service-cat.warm .service-cat-icon {
+    background: rgba(255, 107, 53, 0.15);
+    border-color: rgba(255, 107, 53, 0.4);
+    color: var(--accent-2);
+  }
+
+  .service-cat h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .service-list {
+    list-style: none;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .service-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+  }
+
+  .service-list li::before {
+    content: '✓';
+    color: var(--success);
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* === Capability Matrix === */
+  .matrix-wrapper {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface-2);
+  }
+
+  table.capability-matrix {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    min-width: 700px;
+  }
+
+  .capability-matrix thead {
+    background: var(--surface);
+  }
+
+  .capability-matrix th {
+    padding: 1.2rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--blue-bright);
+    border-bottom: 2px solid var(--border-strong);
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+  }
+
+  .capability-matrix td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  .capability-matrix td:first-child {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .capability-matrix tr:last-child td { border-bottom: none; }
+  .capability-matrix tr:hover { background: rgba(30, 136, 229, 0.04); }
+
+  .cap-yes {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background: rgba(76, 175, 80, 0.15);
+    color: var(--success);
+    border-radius: 6px;
+    text-align: center;
+    line-height: 28px;
+    font-weight: bold;
+  }
+
+  /* === Vendors === */
+  .vendor-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .vendor-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .vendor-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .vendor-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+  }
+
+  .vendor-card small {
+    color: var(--text-dim);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* === Leadership === */
+  #leadership { background: var(--surface); }
+
+  .leader-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .leader-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .leader-card:hover { border-color: var(--border-strong); transform: translateY(-4px); }
+
+  .leader-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .avatar {
+    width: 110px;
+    height: 110px;
+    background: var(--gradient-accent);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: white;
+    flex-shrink: 0;
+    border: 3px solid var(--surface);
+    box-shadow: 0 0 0 2px var(--border-strong), 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: -1px;
+  }
+
+  .leader-card.warm .avatar { background: var(--gradient-warm); }
+
+  .avatar img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .avatar img.loaded { opacity: 1; }
+
+  /* Decorative ring around avatar for premium feel */
+  .avatar::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 1px dashed rgba(66, 165, 245, 0.25);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .leader-card.warm .avatar::after {
+    border-color: rgba(255, 167, 38, 0.3);
+  }
+
+  /* Small "photo coming soon" hint that shows only until photo is added — appears on hover */
+  .avatar .photo-hint {
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.7);
+    color: white;
+    font-size: 0.55rem;
+    padding: 2px 8px;
+    border-radius: 100px;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .avatar:hover .photo-hint { opacity: 1; }
+  .avatar.has-photo .photo-hint { display: none; }
+
+  .leader-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .leader-info .role {
+    color: var(--blue-bright);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .leader-card.warm .leader-info .role { color: var(--accent-2); }
+
+  .leader-bio {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .leader-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .leader-tag {
+    padding: 0.3rem 0.75rem;
+    background: rgba(30, 136, 229, 0.1);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  /* === Track Record === */
+  .track-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .track-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+
+  .track-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--blue-bright);
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .client-tag {
+    padding: 1rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: all 0.2s;
+  }
+
+  .client-tag:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+
+  /* === Methodology === */
+  #methodology { background: var(--surface); }
+
+  .method-phases {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+    position: relative;
+  }
+
+  .phase-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .phase-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
+
+  .phase-num {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-accent);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+    font-size: 0.9rem;
+  }
+
+  .phase-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .phase-card p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  /* === HSE === */
+  .hse-banner {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(30, 136, 229, 0.1) 100%);
+    border: 1px solid var(--border-strong);
+    border-radius: 20px;
+    padding: 4rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hse-icon-big {
+    width: 140px;
+    height: 140px;
+    background: var(--gradient-warm);
+    border-radius: 24px;
+    display: grid;
+    place-items: center;
+    font-size: 4rem;
+    margin: 0 auto;
+    box-shadow: 0 10px 40px rgba(255, 107, 53, 0.3);
+  }
+
+  .hse-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .hse-pillar {
+    padding: 1rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .hse-pillar strong { display: block; font-size: 1.2rem; margin-bottom: 0.25rem; color: var(--accent-2); }
+  .hse-pillar small { color: var(--text-muted); font-size: 0.8rem; }
+
+  /* === Values === */
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .value-pill {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s;
+  }
+
+  .value-pill:hover {
+    border-color: var(--border-strong);
+    transform: translateX(4px);
+  }
+
+  .value-pill .v-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--gradient-accent);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: white;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+  }
+
+  .value-pill h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .value-pill p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  /* === Field Operations / Gallery === */
+  #field-operations { background: var(--surface); position: relative; }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .gallery-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s;
+    position: relative;
+  }
+  .gallery-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-strong);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+  }
+
+  .gallery-photo {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background-color: #0a1929;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .gallery-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,25,41,0.85) 0%, rgba(10,25,41,0.1) 50%);
+    pointer-events: none;
+  }
+  .gallery-photo .photo-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(255,107,53,0.95);
+    color: white;
+    padding: 0.35rem 0.8rem;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    z-index: 2;
+    text-transform: uppercase;
+  }
+  .gallery-photo .photo-missing {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    font-style: italic;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #0a1929, #15315a);
+    z-index: 1;
+    transition: opacity 0.4s;
+  }
+  .gallery-photo .photo-missing code {
+    background: rgba(255,167,38,0.15);
+    color: var(--accent-2);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.78rem;
+  }
+  .gallery-photo.loaded .photo-missing { display: none; }
+
+  .gallery-caption {
+    padding: 1.5rem;
+  }
+  .gallery-caption h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  .gallery-caption p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-bottom: 1rem;
+  }
+  .gallery-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .gallery-meta span {
+    padding: 0.25rem 0.7rem;
+    background: rgba(30,136,229,0.12);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.72rem;
+    color: var(--blue-bright);
+    font-weight: 600;
+  }
+  .gallery-meta span.warm {
+    background: rgba(255,107,53,0.12);
+    border-color: rgba(255,107,53,0.3);
+    color: var(--accent-2);
+  }
+
+  /* === Certification Card === */
+  .cert-card {
+    background: linear-gradient(135deg, rgba(255,107,53,0.08) 0%, rgba(30,136,229,0.08) 100%);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: center;
+  }
+  .cert-badge {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #ff6b35, #ffa726);
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 10px 30px rgba(255,107,53,0.3);
+  }
+  .cert-info h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+  }
+  .cert-info p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+  .cert-status {
+    padding: 0.5rem 1.2rem;
+    background: rgba(76,175,80,0.15);
+    border: 1px solid rgba(76,175,80,0.4);
+    border-radius: 100px;
+    color: #4caf50;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  /* === Contact === */
+  #contact {
+    background: var(--gradient-hero);
+    position: relative;
+  }
+
+  #contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 30% 20%, rgba(30, 136, 229, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(255, 107, 53, 0.15) 0%, transparent 50%);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-channels {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .channel-card {
+    background: rgba(15, 30, 53, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    transition: all 0.3s;
+  }
+
+  .channel-card:hover { border-color: var(--border-strong); transform: translateX(4px); }
+
+  .channel-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--gradient-accent);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .channel-info small {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .channel-info strong {
+    font-size: 1rem;
+    color: var(--text);
+  }
+
+  /* === Footer === */
+  footer {
+    background: var(--navy);
+    padding: 3rem 2rem 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  footer p {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+  }
+
+  footer p a { color: var(--blue-bright); text-decoration: none; }
+
+  /* === Placeholders === */
+  .placeholder {
+    color: var(--accent-2);
+    font-style: italic;
+    background: rgba(255, 167, 38, 0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    border: 1px dashed rgba(255, 167, 38, 0.3);
+    font-size: 0.85em;
+  }
+
+  /* === Reveal animation === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* === Responsive === */
+  @media (max-width: 968px) {
+    .nav-links { display: none; }
+    .hero-content,
+    .about-grid,
+    .leader-grid,
+    .service-categories,
+    .track-grid,
+    .hse-banner,
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-visual { height: 320px; }
+    .orbit-3 { width: 320px; height: 320px; }
+    .orbit-2 { width: 240px; height: 240px; }
+    .orbit-1 { width: 160px; height: 160px; }
+    .core-hub { width: 100px; height: 100px; font-size: 1.8rem; }
+    .stats-container { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .vendor-grid { grid-template-columns: repeat(2, 1fr); }
+    .method-phases { grid-template-columns: 1fr 1fr; }
+    .values-grid { grid-template-columns: 1fr; }
+    section { padding: 4rem 1.5rem; }
+  }
+
+  @media print {
+    nav, .hero-visual, .orbit { display: none; }
+    body { background: white; color: black; }
+    section { page-break-inside: avoid; padding: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-container">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Echo Engineering">
+          <defs>
+            <linearGradient id="navBg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#091627"/><stop offset="50%" stop-color="#0f2440"/><stop offset="100%" stop-color="#1a3a6e"/>
+            </linearGradient>
+            <linearGradient id="navWave" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#a0b0c5" stop-opacity="0.7"/><stop offset="50%" stop-color="#e8eef7"/><stop offset="100%" stop-color="#8b9bb0" stop-opacity="0.6"/>
+            </linearGradient>
+            <linearGradient id="navSig" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#ff6b35"/><stop offset="100%" stop-color="#ffa726"/>
+            </linearGradient>
+          </defs>
+          <rect width="100" height="100" rx="22" fill="url(#navBg)"/>
+          <g fill="#ffffff">
+            <rect x="20" y="22" width="9" height="56" rx="1.5"/>
+            <rect x="20" y="22" width="38" height="9" rx="1.5"/>
+            <rect x="20" y="45.5" width="34" height="9" rx="1.5"/>
+            <rect x="20" y="69" width="38" height="9" rx="1.5"/>
+          </g>
+          <g fill="none" stroke="url(#navWave)" stroke-width="3.6" stroke-linecap="round">
+            <path d="M 30 26.5 q 3.5 -5.5 7 0 t 7 0 t 7 0 t 7 0"/>
+            <path d="M 28 50 q 4 -6 8 0 t 8 0 t 8 0 t 8 0"/>
+            <path d="M 30 73.5 q 3.5 -5.5 7 0 t 7 0 t 7 0 t 7 0"/>
+          </g>
+          <circle cx="68" cy="50" r="3.2" fill="url(#navSig)"/>
+          <circle cx="68" cy="50" r="1.2" fill="#ffffff" opacity="0.95"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        Echo Engineering
+        <small>PLC • ETHIOPIA</small>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#capability">Capability</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#track-record">Track Record</a></li>
+      <li><a href="#methodology">Methodology</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="grid-bg"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-tag">
+        <span class="pulse-dot"></span>
+        ESTABLISHED 2024 • OPERATING NATIONWIDE
+      </div>
+      <h1>Connecting Ethiopia. <span class="accent">Powering Progress.</span></h1>
+      <p class="hero-sub">
+        Echo Engineering PLC delivers multi-vendor telecom infrastructure deployment, electro-mechanical works, and field engineering services to operators and vendors expanding Ethiopia's connectivity.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#capability" class="btn btn-primary">View Capability Matrix →</a>
+        <a href="#contact" class="btn btn-ghost">Request a Proposal</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="orbit orbit-1"></div>
+      <div class="orbit orbit-2"></div>
+      <div class="orbit orbit-3"></div>
+      <div class="core-hub">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Echo Engineering">
+          <defs>
+            <linearGradient id="heroBg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#091627"/><stop offset="50%" stop-color="#0f2440"/><stop offset="100%" stop-color="#1a3a6e"/>
+            </linearGradient>
+            <linearGradient id="heroE" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#d6e2f0"/>
+            </linearGradient>
+            <linearGradient id="heroWave" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#a0b0c5" stop-opacity="0.7"/><stop offset="30%" stop-color="#e8eef7"/><stop offset="70%" stop-color="#c5d0dd"/><stop offset="100%" stop-color="#8b9bb0" stop-opacity="0.6"/>
+            </linearGradient>
+            <linearGradient id="heroSig" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#ff6b35"/><stop offset="100%" stop-color="#ffa726"/>
+            </linearGradient>
+            <radialGradient id="heroBeacon" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ffa726" stop-opacity="0.6"/>
+              <stop offset="100%" stop-color="#ff6b35" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="heroGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="0.8" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- Backdrop -->
+          <rect width="100" height="100" rx="22" fill="url(#heroBg)"/>
+          <rect x="1.5" y="1.5" width="97" height="97" rx="20.5" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
+
+          <!-- Faint blueprint grid -->
+          <g stroke="rgba(160,176,197,0.06)" stroke-width="0.4">
+            <line x1="0" y1="20" x2="100" y2="20"/><line x1="0" y1="40" x2="100" y2="40"/>
+            <line x1="0" y1="60" x2="100" y2="60"/><line x1="0" y1="80" x2="100" y2="80"/>
+            <line x1="20" y1="0" x2="20" y2="100"/><line x1="40" y1="0" x2="40" y2="100"/>
+            <line x1="60" y1="0" x2="60" y2="100"/><line x1="80" y1="0" x2="80" y2="100"/>
+          </g>
+
+          <!-- The E -->
+          <g fill="url(#heroE)">
+            <rect x="20" y="22" width="9" height="56" rx="1.5"/>
+            <rect x="20" y="22" width="38" height="9" rx="1.5"/>
+            <rect x="20" y="45.5" width="34" height="9" rx="1.5"/>
+            <rect x="20" y="69" width="38" height="9" rx="1.5"/>
+          </g>
+
+          <!-- Sine waves woven through E -->
+          <g fill="none" stroke="url(#heroWave)" stroke-width="3.6" stroke-linecap="round" filter="url(#heroGlow)">
+            <path d="M 30 26.5 q 3.5 -5.5 7 0 t 7 0 t 7 0 t 7 0"/>
+            <path d="M 28 50    q 4   -6   8 0 t 8 0 t 8 0 t 8 0"/>
+            <path d="M 30 73.5 q 3.5 -5.5 7 0 t 7 0 t 7 0 t 7 0"/>
+          </g>
+
+          <!-- Animated beacon halo -->
+          <circle cx="68" cy="50" r="10" fill="url(#heroBeacon)">
+            <animate attributeName="r" values="8;14;8" dur="2.4s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2.4s" repeatCount="indefinite"/>
+          </circle>
+
+          <!-- Beacon core -->
+          <circle cx="68" cy="50" r="3.2" fill="url(#heroSig)"/>
+          <circle cx="68" cy="50" r="1.2" fill="#ffffff" opacity="0.95"/>
+
+          <!-- Pulse rings -->
+          <g fill="none" stroke="url(#heroSig)" stroke-width="0.7">
+            <circle cx="68" cy="50" r="6.5" opacity="0.55">
+              <animate attributeName="r" values="5;9;5" dur="2.4s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="68" cy="50" r="10.5" opacity="0.4">
+              <animate attributeName="r" values="9;13;9" dur="2.4s" begin="0.4s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2.4s" begin="0.4s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stats-container">
+    <div class="stat-item">
+      <div class="stat-num">14+</div>
+      <div class="stat-label">Years Combined Leadership Experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Global Vendor Technologies</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">7+</div>
+      <div class="stat-label">Engineering Partners</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Tier-1 Operator Engagements</div>
+    </div>
+  </div>
+</div>
+
+<!-- About -->
+<section id="about">
+  <div class="section-container reveal">
+    <span class="section-eyebrow">About the Company</span>
+    <h2 class="section-title">A new generation of Ethiopian engineering excellence.</h2>
+    <p class="section-intro">
+      Founded on April 7, 2024, Echo Engineering PLC was built to meet the rising demand for skilled, vendor-certified telecom and electro-mechanical engineering in Ethiopia and East Africa. We combine deep field experience with disciplined operations to deliver projects to international standards.
+    </p>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <h3><span class="icon">◎</span> Our Vision</h3>
+        <p>
+          To become one of the leading telecom and electro-mechanical engineering companies in Ethiopia and East Africa by delivering innovative, reliable, and high-quality technical solutions.
+        </p>
+      </div>
+      <div class="about-card">
+        <h3><span class="icon">▶</span> Our Mission</h3>
+        <ul class="mission-list">
+          <li>Provide professional telecom and electro-mechanical engineering services</li>
+          <li>Support telecom network expansion and infrastructure development</li>
+          <li>Maintain the highest standards of safety, quality, and customer satisfaction</li>
+          <li>Build long-term partnerships with local and international companies</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <div class="section-container reveal">
+    <span class="section-eyebrow">Core Services</span>
+    <h2 class="section-title">Two integrated practice areas. One trusted delivery partner.</h2>
+    <p class="section-intro">
+      Our portfolio is structured to serve both greenfield deployments and operational maintenance — covering everything from site survey to commissioning and long-term support.
+    </p>
+
+    <div class="service-categories">
+      <div class="service-cat">
+        <div class="service-cat-header">
+          <div class="service-cat-icon">⌬</div>
+          <h3>Telecom Infrastructure</h3>
+        </div>
+        <ul class="service-list">
+          <li>Telecom equipment installation & commissioning</li>
+          <li>BTS, Microwave, and transmission installation</li>
+          <li>Fiber optic deployment, support & maintenance</li>
+          <li>Site survey and technical assessment</li>
+          <li>Network maintenance and troubleshooting</li>
+          <li>Power integration and rectifier installation</li>
+          <li>Tower erection and telecom site maintenance</li>
+        </ul>
+      </div>
+
+      <div class="service-cat warm">
+        <div class="service-cat-header">
+          <div class="service-cat-icon">⚡</div>
+          <h3>Electro-Mechanical Works</h3>
+        </div>
+        <ul class="service-list">
+          <li>Electrical installation works</li>
+          <li>Generator installation and maintenance</li>
+          <li>AC and cooling system installation</li>
+          <li>Power system integration & support</li>
+          <li>Industrial electrical maintenance</li>
+          <li>Electro-mechanical project support services</li>
+          <li>Preventive maintenance programs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Capability Matrix -->
+<section id="capability">
+  <div class="section-container reveal">
+    <span class="section-eyebrow">Vendor Capability Matrix</span>
+    <h2 class="section-title">Multi-vendor expertise across every major OEM.</h2>
+    <p class="section-intro">
+      Our engineers are cross-trained to deliver consistent installation, integration, and maintenance outcomes regardless of vendor technology stack.
+    </p>
+
+    <div class="matrix-wrapper">
+      <table class="capability-matrix">
+        <thead>
+          <tr>
+            <th>Service / Technology</th>
+            <th style="text-align:center;">Nokia</th>
+            <th style="text-align:center;">Huawei</th>
+            <th style="text-align:center;">Ericsson</th>
+            <th style="text-align:center;">ZTE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>RAN / BTS Installation & Commissioning</td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Microwave & Transmission</td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Power & Rectifier Integration</td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Fiber Optic Deployment & OTDR</td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Site Survey & Technical Assessment</td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Preventive & Corrective Maintenance</td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+            <td style="text-align:center;"><span class="cap-yes">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size: 1.3rem; margin: 3rem 0 1rem;">Vendor Technology Experience</h3>
+    <div class="vendor-grid">
+      <div class="vendor-card">
+        <div class="vendor-name">NOKIA</div>
+        <small>RAN • Transmission • Core</small>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-name">HUAWEI</div>
+        <small>BTS • Microwave • Power</small>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-name">ERICSSON</div>
+        <small>RBS • MINI-LINK • EPC</small>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-name">ZTE</div>
+        <small>UNI-RAN • Transmission</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Leadership -->
+<section id="leadership">
+  <div class="section-container reveal">
+    <span class="section-eyebrow">Leadership Team</span>
+    <h2 class="section-title">Field-tested leadership with global vendor experience.</h2>
+    <p class="section-intro">
+      Echo Engineering is led by engineers who have built and operated telecom networks for Ethiopia's leading operators.
+    </p>
+
+    <div class="leader-grid">
+      <div class="leader-card">
+        <div class="leader-header">
+          <div class="avatar">
+            <img src="photos/misganaw-zelalem.jpg" alt="Misganaw Zelalem" loading="lazy" />
+            <span>MZ</span>
+            <span class="photo-hint">PHOTO COMING SOON</span>
+          </div>
+          <div class="leader-info">
+            <h3>Misganaw Zelalem</h3>
+            <div class="role">General Manager · Co-Founder · Technical Lead</div>
+          </div>
+        </div>
+        <p class="leader-bio">
+          Over <strong>9 years</strong> of telecom industry experience in technical operations, infrastructure deployment, installation, maintenance, and field engineering. Has delivered projects with leading telecom vendors and operators across Ethiopia.
+        </p>
+        <div class="leader-tags">
+          <span class="leader-tag">Technical Operations</span>
+          <span class="leader-tag">Infrastructure Deployment</span>
+          <span class="leader-tag">Field Engineering</span>
+          <span class="leader-tag">Multi-Vendor</span>
+        </div>
+      </div>
+
+      <div class="leader-card warm">
+        <div class="leader-header">
+          <div class="avatar">
+            <img src="photos/kidist-debas.jpg" alt="Kidist Debas" loading="lazy" />
+            <span>KD</span>
+            <span class="photo-hint">PHOTO COMING SOON</span>
+          </div>
+          <div class="leader-info">
+            <h3>Kidist Debas</h3>
+            <div class="role">Co-Founder & Operations Manager</div>
+          </div>
+        </div>
+        <p class="leader-bio">
+          Over <strong>5 years</strong> of experience in managerial and technical roles. Strong background in project coordination, operations management, team supervision, and technical support services across engineering and telecom projects.
+        </p>
+        <div class="leader-tags">
+          <span class="leader-tag">Project Coordination</span>
+          <span class="leader-tag">Operations Management</span>
+          <span class="leader-tag">Team Supervision</span>
+          <span class="leader-tag">Technical Support</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Track Record -->
+<section id="track-record">
+  <div class="section-container reveal">
+    <span class="section-eyebrow">Track Record</span>
+    <h2 class="section-title">Trusted by Ethiopia's operators and global engineering partners.</h2>
+    <p class="section-intro">
+      Since our founding in 2024, we have delivered telecom and engineering services in collaboration with Tier-1 operators and a network of established engineering firms.
+    </p>
+
+    <div class="track-grid">
+      <div class="track-card">
+        <h3>⌖ Operator Engagements</h3>
+        <div class="logo-grid">
+          <div class="client-tag">Safaricom Ethiopia</div>
+          <div class="client-tag">Ethio Telecom</div>
+        </div>
+      </div>
+      <div class="track-card">
+        <h3>⚡ Engineering Partners & Subcontractors</h3>
+        <div class="logo-grid">
+          <div class="client-tag">Glow Networks Ltd</div>
+          <div class="client-tag">Steelman</div>
+          <div class="client-tag">ABM Engineering</div>
+          <div class="client-tag">Wavelet Engineering</div>
+          <div class="client-tag">Adrian Group</div>
+          <div class="client-tag">Elite Engineering</div>
+          <div class="client-tag">IEngineering</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certification callout -->
+    <div class="cert-card">
+      <div class="cert-badge">⚙</div>
+      <div class="cert-info">
+        <h4>Huawei–AAU ICT Practice Center · Trained Crews</h4>
+        <p>Our field engineering teams complete certified training at the <strong>Huawei–Addis Ababa University ICT Practice Center</strong>, covering EHS standards, tower climbing, BTS installation, power systems, and microwave/transmission practice.</p>
+      </div>
+      <div class="cert-status">✓ ACTIVE</div>
+    </div>
+  </div>
+</section>
+
+<!-- Methodology -->
+<section id="methodology">
+  <div class="section-container reveal">
+    <span class="section-eyebrow">Delivery Methodology</span>
+    <h2 class="section-title">A disciplined, repeatable process for every project.</h2>
+    <p class="section-intro">
+      Our delivery model is built around vendor MOPs (Methods of Procedure), HSE compliance, and clear acceptance criteria — ensuring predictability for clients and accountability for our teams.
+    </p>
+
+    <div class="method-phases">
+      <div class="phase-card">
+        <div class="phase-num">1</div>
+        <h4>Survey & Planning</h4>
+        <p>Site walk, technical assessment, BoM verification, MOP review.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">2</div>
+        <h4>Mobilization</h4>
+        <p>Crew assignment, tool & PPE check, safety briefing, logistics.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">3</div>
+        <h4>Installation</h4>
+        <p>Vendor-spec installation, cabling, grounding, power-up.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">4</div>
+        <h4>Integration & Test</h4>
+        <p>Commissioning, performance verification, ATP documentation.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">5</div>
+        <h4>Handover & Support</h4>
+        <p>Snag closure, as-built docs, warranty support, PM cycles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Field Operations -->
+<section id="field-operations">
+  <div class="section-container reveal">
+    <span class="section-eyebrow">Field Operations</span>
+    <h2 class="section-title">Real teams. Real sites. Real work.</h2>
+    <p class="section-intro">
+      Our engineers deliver on the ground every day — at certified training facilities, on rooftops, at telecom sites across Ethiopia. Below: our crews in the field.
+    </p>
+
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <div class="gallery-photo" style="background-image: url('photos/team-training-huawei.jpg');">
+          <div class="photo-tag">Certified Training</div>
+          <div class="photo-missing">[ Photo: team-training-huawei.jpg — save photo to <code>photos/</code> folder ]</div>
+        </div>
+        <div class="gallery-caption">
+          <h4>Huawei–AAU ICT Practice Center</h4>
+          <p>Echo Engineering crews completing certified Environmental, Health & Safety (EHS) and technical training at the Huawei – Addis Ababa University ICT Practice Center. Full PPE compliance, harness certification, and multi-discipline practice areas.</p>
+          <div class="gallery-meta">
+            <span class="warm">Huawei Certified</span>
+            <span>EHS Training</span>
+            <span>Tower Climbing</span>
+            <span>BTS Installation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-card">
+        <div class="gallery-photo" style="background-image: url('photos/team-site-installation.jpg');">
+          <div class="photo-tag">Live Site</div>
+          <div class="photo-missing">[ Photo: team-site-installation.jpg — save photo to <code>photos/</code> folder ]</div>
+        </div>
+        <div class="gallery-caption">
+          <h4>Telecom Site Installation — Rooftop Deployment</h4>
+          <p>Echo Engineering installation crew on an active rooftop telecom site in Addis Ababa. Structural mounting, antenna installation, and power integration carried out to vendor specifications with full safety compliance.</p>
+          <div class="gallery-meta">
+            <span class="warm">Active Project</span>
+            <span>Rooftop Site</span>
+            <span>Multi-vendor</span>
+            <span>Addis Ababa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HSE -->
+<section>
+  <div class="section-container reveal">
+    <span class="section-eyebrow">Health, Safety & Environment</span>
+    <h2 class="section-title">Safety is not a checklist. It is how we work.</h2>
+
+    <div class="hse-banner">
+      <div class="hse-icon-big">⛑</div>
+      <div>
+        <p style="font-size: 1.05rem; color: var(--text-muted);">
+          Echo Engineering PLC enforces strict Health, Safety, and Environmental compliance across all project sites — including tower work, electrical installations, and high-risk telecom operations. Every team member is trained, equipped, and accountable.
+        </p>
+        <div class="hse-pillars">
+          <div class="hse-pillar">
+            <strong>Zero-Harm</strong>
+            <small>Target across all operations</small>
+          </div>
+          <div class="hse-pillar">
+            <strong>PPE Mandatory</strong>
+            <small>For all field activities</small>
+          </div>
+          <div class="hse-pillar">
+            <strong>Incident Reporting</strong>
+            <small>Documented &amp; actioned</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section style="background: var(--surface);">
+  <div class="section-container reveal">
+    <span class="section-eyebrow">Core Values</span>
+    <h2 class="section-title">What we stand for — on every site, every day.</h2>
+
+    <div class="values-grid">
+      <div class="value-pill">
+        <div class="v-icon">★</div>
+        <div><h4>Quality</h4><p>Built to vendor and international specification.</p></div>
+      </div>
+      <div class="value-pill">
+        <div class="v-icon">⚖</div>
+        <div><h4>Integrity</h4><p>Honest reporting, transparent invoicing.</p></div>
+      </div>
+      <div class="value-pill">
+        <div class="v-icon">◆</div>
+        <div><h4>Professionalism</h4><p>Trained crews, certified procedures.</p></div>
+      </div>
+      <div class="value-pill">
+        <div class="v-icon">⛑</div>
+        <div><h4>Safety</h4><p>Non-negotiable across all operations.</p></div>
+      </div>
+      <div class="value-pill">
+        <div class="v-icon">⚡</div>
+        <div><h4>Innovation</h4><p>Continuous improvement of methods and tools.</p></div>
+      </div>
+      <div class="value-pill">
+        <div class="v-icon">♥</div>
+        <div><h4>Customer Satisfaction</h4><p>Long-term partnerships over single transactions.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="section-container reveal">
+    <div class="contact-grid">
+      <div>
+        <span class="section-eyebrow">Get in Touch</span>
+        <h2 class="section-title" style="color: white; -webkit-text-fill-color: white;">Let's build the next chapter of Ethiopia's connectivity together.</h2>
+        <p style="color: var(--text-muted); margin-top: 1rem;">
+          Whether you are a vendor planning a regional rollout, an operator scaling coverage, or a partner seeking a reliable subcontractor — we'd like to hear from you.
+        </p>
+      </div>
+
+      <div class="contact-channels">
+        <div class="channel-card">
+          <div class="channel-icon">☏</div>
+          <div class="channel-info">
+            <small>Phone — Mobile</small>
+            <strong>+251 993 963 205</strong>
+          </div>
+        </div>
+        <div class="channel-card">
+          <div class="channel-icon">✉</div>
+          <div class="channel-info">
+            <small>Email</small>
+            <strong>misganaw.zelalem44@gmail.com</strong>
+          </div>
+        </div>
+        <div class="channel-card">
+          <div class="channel-icon">⌖</div>
+          <div class="channel-info">
+            <small>Head Office</small>
+            <strong>Lideta Sub-City, Addis Ababa, Ethiopia</strong>
+          </div>
+        </div>
+        <div class="channel-card">
+          <div class="channel-icon">⚐</div>
+          <div class="channel-info">
+            <small>Registration</small>
+            <strong>TIN 0077917414 &nbsp;·&nbsp; License LD/AA/14/669/4512687/2015</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>
+    &copy; 2026 Echo Electromechanical Engineering PLC. All rights reserved. &nbsp;|&nbsp; Established 07 April 2024 &nbsp;|&nbsp; Lideta, Addis Ababa, Ethiopia
+  </p>
+  <p style="margin-top: 0.5rem; font-size: 0.75rem;">
+    Business License: LD/AA/14/669/4512687/2015 &nbsp;•&nbsp; TIN: 0077917414 &nbsp;•&nbsp; Capital: ETB 300,000
+  </p>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Animate stat counters
+  const animateCounter = (el, target) => {
+    const duration = 1800;
+    const start = performance.now();
+    const suffix = el.textContent.replace(/[0-9]/g, '');
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.floor(eased * target);
+      el.textContent = value + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        document.querySelectorAll('.stat-num').forEach(el => {
+          const target = parseInt(el.textContent);
+          if (!isNaN(target)) animateCounter(el, target);
+        });
+        statsObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsBar = document.querySelector('.stats-bar');
+  if (statsBar) statsObserver.observe(statsBar);
+
+  // Navbar background on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+      nav.style.background = 'rgba(10, 25, 41, 0.95)';
+    } else {
+      nav.style.background = 'rgba(10, 25, 41, 0.85)';
+    }
+  });
+
+  // Detect whether gallery photos exist; hide the "save photo" fallback if they do
+  document.querySelectorAll('.gallery-photo').forEach(el => {
+    const bg = getComputedStyle(el).backgroundImage;
+    const match = bg.match(/url\(["']?(.+?)["']?\)/);
+    if (!match) return;
+    const img = new Image();
+    img.onload = () => el.classList.add('loaded');
+    img.src = match[1];
+  });
+
+  // Leadership avatar photos — fade in when loaded, mark parent as has-photo
+  document.querySelectorAll('.avatar img').forEach(img => {
+    const apply = () => {
+      img.classList.add('loaded');
+      img.closest('.avatar').classList.add('has-photo');
+    };
+    if (img.complete && img.naturalHeight > 0) apply();
+    else img.addEventListener('load', apply);
+  });
+</script>
+
+</body>
+</html>

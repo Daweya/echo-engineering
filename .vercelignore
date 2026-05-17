@@ -1,0 +1,34 @@
+# =====================================================
+# Echo Engineering — Vercel deployment exclusions
+# Public website ONLY. Internal/private files stay local.
+# =====================================================
+
+# --- Internal documents (contain bank details, leadership contact, etc.) ---
+START-HERE.html
+brand-guidelines.html
+Echo-Engineering-Profile-PDF.html
+Echo-Engineering-Company-Profile.pdf
+Echo-Engineering-Company-Profile.md
+Executive-Summary.md
+
+# --- Stationery (business cards w/ personal phone, letterhead, invoice w/ banking) ---
+stationery/
+
+# --- Logo tools (internal HTML; SVG logo assets stay deployed for the site) ---
+logo/proposals.html
+logo/png-exporter.html
+
+# --- System / dev files ---
+.git/
+.gitignore
+.DS_Store
+Thumbs.db
+node_modules/
+*.log
+.env
+.env.*
+.vscode/
+.idea/
+
+# --- Memory & cache ---
+.claude-launcher/

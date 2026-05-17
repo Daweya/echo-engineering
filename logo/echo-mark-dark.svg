@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Echo Engineering (dark)">
+  <!-- Monochrome dark navy version — for light backgrounds, letterhead, print -->
+  <rect width="100" height="100" rx="22" fill="none" stroke="rgba(10,25,41,0.2)" stroke-width="1"/>
+  <g fill="#0a1929">
+    <rect x="22" y="22" width="8" height="56" rx="2"/>
+    <rect x="22" y="22" width="28" height="8" rx="2"/>
+    <rect x="22" y="46" width="32" height="8" rx="2"/>
+    <rect x="22" y="70" width="28" height="8" rx="2"/>
+  </g>
+  <circle cx="60" cy="50" r="3.6" fill="#0a1929"/>
+  <g fill="none" stroke="#0a1929" stroke-width="2.6" stroke-linecap="round">
+    <path d="M 67 44 a 8 8 0 0 1 0 12" opacity="0.95"/>
+    <path d="M 73 38 a 16 16 0 0 1 0 24" opacity="0.65"/>
+    <path d="M 79 32 a 24 24 0 0 1 0 36" opacity="0.4"/>
+  </g>
+</svg>

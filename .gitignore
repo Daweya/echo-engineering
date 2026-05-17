@@ -1,0 +1,33 @@
+# =====================================================
+# Echo Engineering — Git ignore (matches .vercelignore)
+# Private files NEVER pushed to GitHub or any public host.
+# =====================================================
+
+# --- Internal documents (contain bank details) ---
+START-HERE.html
+brand-guidelines.html
+Echo-Engineering-Profile-PDF.html
+Echo-Engineering-Company-Profile.pdf
+Echo-Engineering-Company-Profile.md
+Executive-Summary.md
+
+# --- Stationery (bank info, personal contacts) ---
+stationery/
+
+# --- Internal logo tools ---
+logo/proposals.html
+logo/png-exporter.html
+
+# --- System / dev files ---
+.DS_Store
+Thumbs.db
+node_modules/
+*.log
+.env
+.env.*
+.vscode/
+.idea/
+
+# --- Claude / runtime artifacts ---
+.claude-launcher/
+.claude/

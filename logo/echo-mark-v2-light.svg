@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Echo Engineering">
+  <defs>
+    <linearGradient id="v2lE" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2c5294"/>
+      <stop offset="100%" stop-color="#1a3a6e"/>
+    </linearGradient>
+    <linearGradient id="v2lWave" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b9bb0" stop-opacity="0.5"/>
+      <stop offset="30%" stop-color="#7a8a9e"/>
+      <stop offset="70%" stop-color="#9ba8b8"/>
+      <stop offset="100%" stop-color="#6b7d96" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="v2lSig" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff6b35"/>
+      <stop offset="100%" stop-color="#ffa726"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Transparent background for light surfaces (letterhead, business cards, white slides) -->
+
+  <!-- The "E" (navy, like the original) -->
+  <g fill="url(#v2lE)">
+    <rect x="20" y="22" width="9" height="56" rx="1.5"/>
+    <rect x="20" y="22" width="38" height="9" rx="1.5"/>
+    <rect x="20" y="45.5" width="34" height="9" rx="1.5"/>
+    <rect x="20" y="69" width="38" height="9" rx="1.5"/>
+  </g>
+
+  <!-- Sine waves through E (silver/steel) -->
+  <g fill="none" stroke="url(#v2lWave)" stroke-width="3.6" stroke-linecap="round">
+    <path d="M 30 26.5 q 3.5 -5.5 7 0 t 7 0 t 7 0 t 7 0"/>
+    <path d="M 28 50    q 4   -6   8 0 t 8 0 t 8 0 t 8 0"/>
+    <path d="M 30 73.5 q 3.5 -5.5 7 0 t 7 0 t 7 0 t 7 0"/>
+  </g>
+
+  <!-- Signal beacon -->
+  <circle cx="68" cy="50" r="3.2" fill="url(#v2lSig)"/>
+  <circle cx="68" cy="50" r="1.2" fill="#ffffff" opacity="0.95"/>
+
+  <!-- Pulse rings -->
+  <g fill="none" stroke="url(#v2lSig)" stroke-width="0.7" opacity="0.5">
+    <circle cx="68" cy="50" r="6.5"/>
+    <circle cx="68" cy="50" r="10.5" opacity="0.6"/>
+  </g>
+</svg>
