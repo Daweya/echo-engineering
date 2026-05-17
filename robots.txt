@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Echo Engineering PLC — public marketing site
+# Sitemap below
+Sitemap: https://echo-engineering.vercel.app/sitemap.xml
